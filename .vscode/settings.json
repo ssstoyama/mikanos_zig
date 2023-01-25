@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "tiehuis.zig",
+  "zls.enable_autofix": true,
+  "zls.enable_import_embedfile_argument_completions": true,
+  "zls.enable_inlay_hints": true,
+  "zls.enable_snippets": true,
+}
