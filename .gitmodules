@@ -1,0 +1,6 @@
+[submodule "submodule/ssstoyama/mikanos"]
+	path = submodule/ssstoyama/mikanos
+	url = https://github.com/ssstoyama/mikanos.git
+[submodule "submodule/uchan-nos/mikanos"]
+	path = submodule/uchan-nos/mikanos
+	url = https://github.com/uchan-nos/mikanos.git
