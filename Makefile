@@ -1,7 +1,7 @@
 TOOL_DIR = ~/osbook/devenv
 
 .PHONY: run
-run:
+run: build
 	$(TOOL_DIR)/run_qemu.sh Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi src/kernel/kernel.elf
 
 .PHONY: build
