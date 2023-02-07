@@ -62,22 +62,22 @@ const BGRResv8BitPerColorPixelWriter = struct {
 export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
     var pixel_writer = PixelWriter.create(config);
 
-    var x: usize = 0;
-    var y: usize = 0;
-    while (x < config.horizontal_resolution) : (x += 1) {
-        while (y < config.vertical_resolution) : (y += 1) {
-            pixel_writer.write(x, y, &PixelColor{ .r = 255, .g = 255, .b = 255 });
-        } else {
-            y = 0;
+    {
+        var x: usize = 0;
+        while (x < config.horizontal_resolution) : (x += 1) {
+            var y: usize = 0;
+            while (y < config.vertical_resolution) : (y += 1) {
+                pixel_writer.write(x, y, &PixelColor{ .r = 255, .g = 255, .b = 255 });
+            }
         }
     }
-    x = 0;
-    y = 0;
-    while (x < 200) : (x += 1) {
-        while (y < 300) : (y += 1) {
-            pixel_writer.write(x, y, &PixelColor{ .r = 0, .g = 255, .b = 0 });
-        } else {
-            y = 0;
+    {
+        var x: usize = 0;
+        while (x < 200) : (x += 1) {
+            var y: usize = 0;
+            while (y < 300) : (y += 1) {
+                pixel_writer.write(x, y, &PixelColor{ .r = 0, .g = 255, .b = 0 });
+            }
         }
     }
 
