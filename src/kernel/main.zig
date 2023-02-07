@@ -59,24 +59,6 @@ const BGRResv8BitPerColorPixelWriter = struct {
     }
 };
 
-fn WritePixel(config: *frame_buffer_config.FrameBufferConfig, x: usize, y: usize, c: *const PixelColor) i32 {
-    const frame_buffer = @ptrCast([*]u8, config.frame_buffer);
-    const pixel_position = config.pixels_per_scan_line * y + x;
-    switch (config.pixel_format) {
-        .kPixelRGBResv8BitPerColor => {
-            frame_buffer[4 * pixel_position + 0] = c.r;
-            frame_buffer[4 * pixel_position + 1] = c.g;
-            frame_buffer[4 * pixel_position + 2] = c.b;
-        },
-        .kPixelBGRResv8BitPerColor => {
-            frame_buffer[4 * pixel_position + 0] = c.b;
-            frame_buffer[4 * pixel_position + 1] = c.g;
-            frame_buffer[4 * pixel_position + 2] = c.r;
-        },
-    }
-    return 0;
-}
-
 export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
     var pixel_writer = PixelWriter.create(config);
 
