@@ -1,9 +1,35 @@
 const frame_buffer_config = @import("frame_buffer_config.zig");
 
+const kFontA = [16]u8{
+    0b00000000, //
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00011000, //    **
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b00100100, //   *  *
+    0b01111110, //  ******
+    0b01000010, //  *    *
+    0b01000010, //  *    *
+    0b01000010, //  *    *
+    0b11100111, // ***  ***
+    0b00000000, //
+    0b00000000, //
+};
+
 const PixelColor = struct {
-    r: u8,
-    g: u8,
-    b: u8,
+    r: u8 = 0,
+    g: u8 = 0,
+    b: u8 = 0,
+
+    pub fn black() PixelColor {
+        return PixelColor{};
+    }
+    pub fn white() PixelColor {
+        return PixelColor{ .r = 255, .g = 255, .b = 255 };
+    }
 };
 
 const PixelWriter = union(enum) {
@@ -59,6 +85,21 @@ const BGRResv8BitPerColorPixelWriter = struct {
     }
 };
 
+fn writeAscii(writer: *PixelWriter, x: usize, y: usize, c: u8, color: *const PixelColor) void {
+    if (c != 'A') return;
+    {
+        var dy: usize = 0;
+        while (dy < 16) : (dy += 1) {
+            var dx: u6 = 0;
+            while (dx < 8) : (dx += 1) {
+                if ((@as(usize, kFontA[dy]) << dx) & 0x80 > 0) {
+                    writer.write(x + dx, y + dy, color);
+                }
+            }
+        }
+    }
+}
+
 export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
     var pixel_writer = PixelWriter.create(config);
 
@@ -67,7 +108,7 @@ export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
         while (x < config.horizontal_resolution) : (x += 1) {
             var y: usize = 0;
             while (y < config.vertical_resolution) : (y += 1) {
-                pixel_writer.write(x, y, &PixelColor{ .r = 255, .g = 255, .b = 255 });
+                pixel_writer.write(x, y, &PixelColor.white());
             }
         }
     }
@@ -80,6 +121,9 @@ export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
             }
         }
     }
+
+    writeAscii(&pixel_writer, 50, 50, 'A', &PixelColor.black());
+    writeAscii(&pixel_writer, 58, 50, 'A', &PixelColor.black());
 
     while (true) asm volatile ("hlt");
 }
