@@ -6,10 +6,13 @@ run: build
 
 .PHONY: build
 build:
-	make -C src/kernel
+	zig build
+	mv src/kernel/kernel src/kernel/kernel.elf
 	cd $(TOOL_DIR) && build
 
 .PHONY: clean
 clean:
 	make -C src/kernel clean
 	rm -rf Build/*
+	rm -rf zig-cache
+	rm -rf zig-out

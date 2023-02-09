@@ -3,6 +3,8 @@
 
 /src/playground
 /submodule
+/zig-cache
+/zig-out
 /Build
 /edk2
 disk.img
