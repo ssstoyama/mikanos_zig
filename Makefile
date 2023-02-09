@@ -1,4 +1,5 @@
 TOOL_DIR = ~/osbook/devenv
+KERNEL_DIR = ./src/kernel
 
 .PHONY: run
 run: build
@@ -7,12 +8,12 @@ run: build
 .PHONY: build
 build:
 	zig build
-	mv src/kernel/kernel src/kernel/kernel.elf
 	cd $(TOOL_DIR) && build
 
 .PHONY: clean
 clean:
 	make -C src/kernel clean
+	rm -f disk.img
 	rm -rf Build/*
 	rm -rf zig-cache
 	rm -rf zig-out

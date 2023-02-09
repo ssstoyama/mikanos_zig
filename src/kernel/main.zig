@@ -25,7 +25,9 @@ export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
     }
 
     font.writeAscii(&pixel_writer, 50, 50, 'A', &graphics.PixelColor.black());
-    font.writeAscii(&pixel_writer, 58, 50, 'A', &graphics.PixelColor.black());
+    font.writeAscii(&pixel_writer, 58, 50, 'B', &graphics.PixelColor.black());
+    font.writeAscii(&pixel_writer, 66, 50, 'C', &graphics.PixelColor.black());
+    font.writeAscii(&pixel_writer, 74, 50, '!', &graphics.PixelColor.black());
 
     while (true) asm volatile ("hlt");
 }

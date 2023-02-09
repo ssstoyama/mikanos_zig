@@ -15,17 +15,18 @@ pub fn build(b: *std.Build) !void {
     });
 
     const kernel = b.addExecutable(.{
-        .name = "kernel",
+        .name = "kernel.elf",
         .root_source_file = .{ .path = "src/kernel/main.zig" },
         .target = target,
         .optimize = optimize,
         .linkage = .static,
     });
+    kernel.addObjectFile("src/kernel/hankaku.o");
+
     kernel.setOutputDir("src/kernel");
     kernel.image_base = 0x100000;
     kernel.entry_symbol_name = "KernelMain";
     kernel.link_z_relro = false;
-    kernel.out_filename = "kernel.elf";
 
     kernel.install();
 }

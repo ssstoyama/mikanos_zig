@@ -1,32 +1,24 @@
 const graphics = @import("graphics.zig");
 
-const kFontA = [16]u8{
-    0b00000000, //
-    0b00011000, //    **
-    0b00011000, //    **
-    0b00011000, //    **
-    0b00011000, //    **
-    0b00100100, //   *  *
-    0b00100100, //   *  *
-    0b00100100, //   *  *
-    0b00100100, //   *  *
-    0b01111110, //  ******
-    0b01000010, //  *    *
-    0b01000010, //  *    *
-    0b01000010, //  *    *
-    0b11100111, // ***  ***
-    0b00000000, //
-    0b00000000, //
-};
+extern var _binary_hankaku_bin_start: u8;
+extern var _binary_hankaku_bin_end: u8;
+extern var _binary_hankaku_bin_size: u8;
+
+fn getFont(c: u8) ?[]u8 {
+    const index: usize = 16 * @as(usize, c);
+    if (index >= @ptrToInt(&_binary_hankaku_bin_size)) return null;
+    var words = @ptrCast([*]u8, &_binary_hankaku_bin_start);
+    return words[index .. index + 16];
+}
 
 pub fn writeAscii(writer: *graphics.PixelWriter, x: usize, y: usize, c: u8, color: *const graphics.PixelColor) void {
-    if (c != 'A') return;
+    var font = getFont(c) orelse return;
     {
         var dy: usize = 0;
         while (dy < 16) : (dy += 1) {
             var dx: u6 = 0;
             while (dx < 8) : (dx += 1) {
-                if ((@as(usize, kFontA[dy]) << dx) & 0x80 > 0) {
+                if ((@as(usize, font[dy]) << dx) & 0x80 > 0) {
                     writer.write(x + dx, y + dy, color);
                 }
             }

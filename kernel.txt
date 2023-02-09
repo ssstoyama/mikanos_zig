@@ -1,0 +1,211 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x101ff0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          77648 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         5
+  Size of section headers:           64 (bytes)
+  Number of section headers:         18
+  Section header string table index: 16
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .rodata           PROGBITS         0000000000100158  00000158
+       0000000000000bb4  0000000000000000 AMS       0     0     8
+  [ 2] .text             PROGBITS         0000000000101d10  00000d10
+       000000000000559f  0000000000000000  AX       0     0     16
+  [ 3] .data             PROGBITS         00000000001082af  000062af
+       0000000000001000  0000000000000000  WA       0     0     1
+  [ 4] .got              PROGBITS         00000000001092b0  000072b0
+       0000000000000008  0000000000000000  WA       0     0     8
+  [ 5] .debug_loc        PROGBITS         0000000000000000  000072b8
+       000000000000088a  0000000000000000           0     0     1
+  [ 6] .debug_abbrev     PROGBITS         0000000000000000  00007b42
+       0000000000000236  0000000000000000           0     0     1
+  [ 7] .debug_info       PROGBITS         0000000000000000  00007d78
+       0000000000002aef  0000000000000000           0     0     1
+  [ 8] .debug_ranges     PROGBITS         0000000000000000  0000a867
+       00000000000001f0  0000000000000000           0     0     1
+  [ 9] .debug_str        PROGBITS         0000000000000000  0000aa57
+       0000000000002b8b  0000000000000001  MS       0     0     1
+  [10] .debug_pubnames   PROGBITS         0000000000000000  0000d5e2
+       000000000000134e  0000000000000000           0     0     1
+  [11] .debug_pubtypes   PROGBITS         0000000000000000  0000e930
+       000000000000081b  0000000000000000           0     0     1
+  [12] .debug_frame      PROGBITS         0000000000000000  0000f150
+       0000000000000ba0  0000000000000000           0     0     8
+  [13] .debug_line       PROGBITS         0000000000000000  0000fcf0
+       000000000000199d  0000000000000000           0     0     1
+  [14] .comment          PROGBITS         0000000000000000  0001168d
+       0000000000000013  0000000000000001  MS       0     0     1
+  [15] .symtab           SYMTAB           0000000000000000  000116a0
+       0000000000000a68  0000000000000018          17   104     8
+  [16] .shstrtab         STRTAB           0000000000000000  00012108
+       00000000000000b4  0000000000000000           0     0     1
+  [17] .strtab           STRTAB           0000000000000000  000121bc
+       0000000000000d8e  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  l (large), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000100040 0x0000000000100040
+                 0x0000000000000118 0x0000000000000118  R      0x8
+  LOAD           0x0000000000000000 0x0000000000100000 0x0000000000100000
+                 0x0000000000000d0c 0x0000000000000d0c  R      0x1000
+  LOAD           0x0000000000000d10 0x0000000000101d10 0x0000000000101d10
+                 0x000000000000559f 0x000000000000559f  R E    0x1000
+  LOAD           0x00000000000062af 0x00000000001082af 0x00000000001082af
+                 0x0000000000001009 0x0000000000001009  RW     0x1000
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000001000000  RW     0x0
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .rodata 
+   02     .text 
+   03     .data .got 
+   04     
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type Advanced Micro Devices X86-64 is not currently supported.
+
+Symbol table '.symtab' contains 111 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS kernel.elf
+     2: 0000000000101d10   255 FUNC    LOCAL  DEFAULT    2 target.Target.Cpu.Feature
+     3: 0000000000101e10    53 FUNC    LOCAL  DEFAULT    2 builtin.panicOutOfBounds
+     4: 0000000000101e50   220 FUNC    LOCAL  DEFAULT    2 target.Target.Cpu.Feature
+     5: 0000000000100578    17 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.in
+     6: 0000000000101f30    23 FUNC    LOCAL  DEFAULT    2 builtin.default_panic
+     7: 00000000001027b0   477 FUNC    LOCAL  DEFAULT    2 debug.panicExtra__anon_10
+     8: 0000000000100589    28 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.ca
+     9: 0000000000101f50   104 FUNC    LOCAL  DEFAULT    2 target.Target.Cpu.Arch.is
+    10: 0000000000101fc0    45 FUNC    LOCAL  DEFAULT    2 __zig_is_named_enum_value
+    11: 00000000001005b3    24 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.co
+    12: 0000000000102350   147 FUNC    LOCAL  DEFAULT    2 graphics.PixelWriter.crea
+    13: 00000000001023f0    30 FUNC    LOCAL  DEFAULT    2 graphics.PixelColor.white
+    14: 0000000000102410   234 FUNC    LOCAL  DEFAULT    2 graphics.PixelWriter.writ
+    15: 0000000000100251     3 OBJECT  LOCAL  DEFAULT    1 main.KernelMain__anon_968
+    16: 0000000000102500    30 FUNC    LOCAL  DEFAULT    2 graphics.PixelColor.black
+    17: 0000000000102520   650 FUNC    LOCAL  DEFAULT    2 font.writeAscii
+    18: 0000000000102990    21 FUNC    LOCAL  DEFAULT    2 graphics.RGBResv8BitPerCo
+    19: 00000000001029b0    21 FUNC    LOCAL  DEFAULT    2 graphics.BGRResv8BitPerCo
+    20: 0000000000102a70    20 FUNC    LOCAL  DEFAULT    2 __zig_is_named_enum_value
+    21: 00000000001029d0    74 FUNC    LOCAL  DEFAULT    2 graphics.RGBResv8BitPerCo
+    22: 0000000000102a20    74 FUNC    LOCAL  DEFAULT    2 graphics.BGRResv8BitPerCo
+    23: 0000000000102a90   245 FUNC    LOCAL  DEFAULT    2 font.getFont
+    24: 00000000001005cb    16 OBJECT  LOCAL  DEFAULT    1 debug.panicExtra__anon_10
+    25: 0000000000102b90    53 FUNC    LOCAL  DEFAULT    2 builtin.panicStartGreater
+    26: 0000000000102bd0   308 FUNC    LOCAL  DEFAULT    2 fmt.bufPrint__anon_1209
+    27: 0000000000102d10   174 FUNC    LOCAL  DEFAULT    2 mem.copy__anon_1448
+    28: 0000000000102dc0   237 FUNC    LOCAL  DEFAULT    2 graphics.PixelWriter.pixe
+    29: 0000000000102eb0   477 FUNC    LOCAL  DEFAULT    2 debug.panicExtra__anon_14
+    30: 00000000001034f0    40 FUNC    LOCAL  DEFAULT    2 io.fixed_buffer_stream.fi
+    31: 0000000000103520    21 FUNC    LOCAL  DEFAULT    2 io.fixed_buffer_stream.Fi
+    32: 0000000000103090   360 FUNC    LOCAL  DEFAULT    2 fmt.format__anon_1568
+    33: 00000000001033b0   215 FUNC    LOCAL  DEFAULT    2 builtin.returnError
+    34: 0000000000103540   137 FUNC    LOCAL  DEFAULT    2 io.fixed_buffer_stream.Fi
+    35: 00000000001035d0    69 FUNC    LOCAL  DEFAULT    2 debug.assert
+    36: 0000000000103620   308 FUNC    LOCAL  DEFAULT    2 fmt.bufPrint__anon_1637
+    37: 00000000001005db    40 OBJECT  LOCAL  DEFAULT    1 builtin.panicOutOfBounds_
+    38: 0000000000103200   425 FUNC    LOCAL  DEFAULT    2 io.writer.Writer(*io.fixe
+    39: 0000000000103490    81 FUNC    LOCAL  DEFAULT    2 fmt.formatType__anon_1630
+    40: 0000000000103be0   115 FUNC    LOCAL  DEFAULT    2 io.writer.Writer(*io.fixe
+    41: 0000000000100291     1 OBJECT  LOCAL  DEFAULT    1 fmt.cacheString__anon_161
+    42: 00000000001047b0    61 FUNC    LOCAL  DEFAULT    2 fmt.formatValue__anon_170
+    43: 0000000000100603    25 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.un
+    44: 00000000001063e0   360 FUNC    LOCAL  DEFAULT    2 fmt.format__anon_1799
+    45: 0000000000103760  1141 FUNC    LOCAL  DEFAULT    2 io.fixed_buffer_stream.Fi
+    46: 0000000000103c60   459 FUNC    LOCAL  DEFAULT    2 fmt.Parser.specifier
+    47: 0000000000103e30   238 FUNC    LOCAL  DEFAULT    2 fmt.Parser.maybe
+    48: 0000000000103f20   445 FUNC    LOCAL  DEFAULT    2 fmt.Parser.until
+    49: 00000000001040e0   769 FUNC    LOCAL  DEFAULT    2 fmt.Parser.number
+    50: 000000000010061c    26 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.un
+    51: 00000000001043f0   261 FUNC    LOCAL  DEFAULT    2 fmt.Parser.char
+    52: 0000000000104500   283 FUNC    LOCAL  DEFAULT    2 fmt.Parser.peek
+    53: 0000000000104620   393 FUNC    LOCAL  DEFAULT    2 fmt.ArgState.nextArg
+    54: 00000000001047f0    78 FUNC    LOCAL  DEFAULT    2 fmt.formatIntValue__anon_
+    55: 0000000000104840  1988 FUNC    LOCAL  DEFAULT    2 fmt.formatInt__anon_1716
+    56: 0000000000105010    18 FUNC    LOCAL  DEFAULT    2 math.absCast__anon_1718
+    57: 0000000000105030    20 FUNC    LOCAL  DEFAULT    2 fmt.isComptime
+    58: 0000000000105050   374 FUNC    LOCAL  DEFAULT    2 fmt.digits2
+    59: 0000000000100636    17 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.di
+    60: 00000000001051d0   331 FUNC    LOCAL  DEFAULT    2 fmt.digitToChar
+    61: 0000000000105320  1393 FUNC    LOCAL  DEFAULT    2 fmt.formatBuf__anon_1721
+    62: 0000000000100678   201 OBJECT  LOCAL  DEFAULT    1 fmt.digits2__anon_1829
+    63: 0000000000105990  1701 FUNC    LOCAL  DEFAULT    2 unicode.utf8CountCodepoin
+    64: 00000000001061a0   489 FUNC    LOCAL  DEFAULT    2 io.writer.Writer(*io.fixe
+    65: 00000000001058a0   232 FUNC    LOCAL  DEFAULT    2 unicode.utf8ByteSequenceL
+    66: 0000000000106040    18 FUNC    LOCAL  DEFAULT    2 mem.readIntNative__anon_1
+    67: 0000000000106060   307 FUNC    LOCAL  DEFAULT    2 unicode.utf8Decode
+    68: 0000000000106550   489 FUNC    LOCAL  DEFAULT    2 unicode.utf8Decode2
+    69: 0000000000106740   828 FUNC    LOCAL  DEFAULT    2 unicode.utf8Decode3
+    70: 0000000000106a80  1023 FUNC    LOCAL  DEFAULT    2 unicode.utf8Decode4
+    71: 0000000000106e80   216 FUNC    LOCAL  DEFAULT    2 mem.set__anon_1831
+    72: 0000000000106f60    49 FUNC    LOCAL  DEFAULT    2 math.min__anon_1832
+    73: 0000000000106390    78 FUNC    LOCAL  DEFAULT    2 fmt.ArgState.hasUnusedArg
+    74: 0000000000100647    45 OBJECT  LOCAL  DEFAULT    1 builtin.panicStartGreater
+    75: 0000000000100741    43 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.sh
+    76: 0000000000100518     8 OBJECT  LOCAL  DEFAULT    1 builtin.zig_backend
+    77: 0000000000100178     1 OBJECT  LOCAL  DEFAULT    1 builtin.output_mode
+    78: 0000000000100179     1 OBJECT  LOCAL  DEFAULT    1 builtin.link_libc
+    79: 000000000010017a     1 OBJECT  LOCAL  DEFAULT    1 start.native_os
+    80: 00000000001001a8    40 OBJECT  LOCAL  DEFAULT    1 target.Target.Cpu.Feature
+    81: 00000000001001d0    72 OBJECT  LOCAL  DEFAULT    1 target.x86.cpu.x86_64
+    82: 00000000001005a5     7 OBJECT  LOCAL  DEFAULT    1 target.x86.cpu.x86_64__an
+    83: 00000000001005ac     7 OBJECT  LOCAL  DEFAULT    1 target.x86.cpu.x86_64__an
+    84: 0000000000100218    56 OBJECT  LOCAL  DEFAULT    1 builtin.cpu
+    85: 0000000000100250     1 OBJECT  LOCAL  DEFAULT    1 start.native_arch
+    86: 0000000000100258     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.in
+    87: 0000000000100260     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.ca
+    88: 0000000000100268     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.co
+    89: 0000000000100278    24 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1568__an
+    90: 0000000000100290     1 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1568__an
+    91: 0000000000100320     1 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1568__an
+    92: 00000000001003b0     2 OBJECT  LOCAL  DEFAULT    1 fmt.max_format_args
+    93: 00000000001003b6     1 OBJECT  LOCAL  DEFAULT    1 fmt.formatIntValue__anon_
+    94: 00000000001003b8    24 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1799__an
+    95: 00000000001003d0     1 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1799__an
+    96: 0000000000100460     1 OBJECT  LOCAL  DEFAULT    1 fmt.format__anon_1799__an
+    97: 00000000001004f0     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.un
+    98: 00000000001004f8     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.un
+    99: 0000000000100500     8 OBJECT  LOCAL  DEFAULT    1 fmt.ANY
+   100: 0000000000100674     4 OBJECT  LOCAL  DEFAULT    1 fmt.ANY__anon_1642
+   101: 0000000000100508     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.di
+   102: 0000000000100510     8 OBJECT  LOCAL  DEFAULT    1 builtin.panic_messages.sh
+   103: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS compiler_rt
+   104: 00000000001082af     0 NOTYPE  GLOBAL DEFAULT    3 _binary_hankaku_bin_start
+   105: 00000000001092af     0 NOTYPE  GLOBAL DEFAULT    3 _binary_hankaku_bin_end
+   106: 0000000000001000     0 NOTYPE  GLOBAL DEFAULT  ABS _binary_hankaku_bin_size
+   107: 0000000000106fe0   378 FUNC    WEAK   DEFAULT    2 memcpy
+   108: 0000000000101ff0   860 FUNC    GLOBAL DEFAULT    2 KernelMain
+   109: 0000000000106fa0    54 FUNC    WEAK   DEFAULT    2 __zig_probe_stack
+   110: 0000000000107160   335 FUNC    WEAK   DEFAULT    2 memset
+
+No version information found in this file.

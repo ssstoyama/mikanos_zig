@@ -10,3 +10,5 @@
 disk.img
 *.o
 *.elf
+*.bin
+!/src/kernel/hankaku.o
