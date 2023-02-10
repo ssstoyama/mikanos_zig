@@ -23,5 +23,5 @@ hankaku.o: hankaku.bin
 .PHONY: clean
 clean:
 	rm -f kernel.elf
-	rm -rf *.o
 	rm -rf *.bin
+	ls | grep -v hankaku.o | grep -E "^*.o$$" | xargs rm -rf
