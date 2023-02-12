@@ -1,3 +1,4 @@
+const std = @import("std");
 const frame_buffer_config = @import("frame_buffer_config.zig");
 const graphics = @import("graphics.zig");
 const font = @import("font.zig");
@@ -24,10 +25,12 @@ export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
         }
     }
 
-    font.writeAscii(&pixel_writer, 50, 50, 'A', &graphics.PixelColor.black());
-    font.writeAscii(&pixel_writer, 58, 50, 'B', &graphics.PixelColor.black());
-    font.writeAscii(&pixel_writer, 66, 50, 'C', &graphics.PixelColor.black());
-    font.writeAscii(&pixel_writer, 74, 50, '!', &graphics.PixelColor.black());
+    var text: [9]u8 = "ABCDEFG!!".*;
+    font.writeString(&pixel_writer, 50, 50, &text, &graphics.PixelColor.black());
+
+    var buf: [10]u8 = undefined;
+    const buftext = std.fmt.bufPrint(&buf, "{d}+{d}={d}", .{ 1, 2, 3 }) catch unreachable;
+    font.writeString(&pixel_writer, 50, 66, buftext, &graphics.PixelColor.black());
 
     while (true) asm volatile ("hlt");
 }

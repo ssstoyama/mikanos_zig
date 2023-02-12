@@ -25,3 +25,11 @@ pub fn writeAscii(writer: *graphics.PixelWriter, x: usize, y: usize, c: u8, colo
         }
     }
 }
+
+pub fn writeString(writer: *graphics.PixelWriter, x: usize, y: usize, s: []u8, color: *const graphics.PixelColor) void {
+    var i: usize = 0;
+    for (s) |c| {
+        writeAscii(writer, x + 8 * i, y, c, color);
+        i += 1;
+    }
+}
