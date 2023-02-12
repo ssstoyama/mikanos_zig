@@ -5,6 +5,10 @@ KERNEL_DIR = ./src/kernel
 run: build
 	$(TOOL_DIR)/run_qemu.sh Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi src/kernel/kernel.elf
 
+.PHONY: debug
+debug: build
+	QEMU_OPTS="-gdb tcp::12345 -S" && $(TOOL_DIR)/run_qemu.sh Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi src/kernel/kernel.elf
+
 .PHONY: build
 build:
 	zig build

@@ -26,7 +26,8 @@
 			"extensions": [
 				"tiehuis.zig",
 				"eamodio.gitlens",
-				"AugusteRame.zls-vscode"
+				"AugusteRame.zls-vscode",
+				"vadimcn.vscode-lldb"
 			]
 		}
 	},
