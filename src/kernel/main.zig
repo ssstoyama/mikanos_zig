@@ -2,7 +2,15 @@ const std = @import("std");
 const frame_buffer_config = @import("frame_buffer_config.zig");
 const graphics = @import("graphics.zig");
 const font = @import("font.zig");
-const console = @import("console.zig");
+const Console = @import("console.zig").Console;
+
+pub var console: Console = undefined;
+
+pub fn printk(comptime format: []const u8, args: anytype) anyerror!void {
+    var buf: [1024]u8 = undefined;
+    const text = try std.fmt.bufPrint(&buf, format, args);
+    console.putString(text);
+}
 
 export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
     var pixel_writer = graphics.PixelWriter.create(config);
@@ -26,12 +34,10 @@ export fn KernelMain(config: *frame_buffer_config.FrameBufferConfig) void {
         }
     }
 
-    var _console: console.Console = console.Console.init(&pixel_writer);
-    var buf: [128]u8 = undefined;
+    console = Console.init(&pixel_writer);
     var i: usize = 0;
-    while (i < 30) : (i += 1) {
-        const line = std.fmt.bufPrint(&buf, "line {d}\n", .{i}) catch unreachable;
-        _console.putString(line);
+    while (i < 33) : (i += 1) {
+        printk("printk: {d}\n", .{i}) catch unreachable;
     }
 
     while (true) asm volatile ("hlt");
