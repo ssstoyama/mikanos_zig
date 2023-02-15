@@ -17,4 +17,6 @@ ln -sf ${edk2}/Build .
 # configure clang (kernel build)
 source /home/vscode/osbook/devenv/buildenv.sh
 
+cp tools_def_arm64.txt ./edk2/Conf/tools_def.txt
+
 unset -v workspace edk2 current
