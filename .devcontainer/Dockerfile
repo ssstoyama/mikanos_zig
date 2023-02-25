@@ -1,4 +1,4 @@
-ARG zigv="zig-linux-x86_64-0.11.0-dev.1586+2d017f379"
+ARG zigv="zig-linux-x86_64-0.11.0-dev.1800+c7f479c3c"
 
 # Build
 FROM debian:bullseye AS builder
