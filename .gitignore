@@ -1,7 +1,7 @@
 /.vscode/*
 !/.vscode/settings.json
 
-/src/playground
+/playground
 /submodule
 /zig-cache
 /zig-out
